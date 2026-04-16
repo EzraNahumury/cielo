@@ -35,7 +35,10 @@ export default function SmoothScroll({
     let refreshRaf = 0;
     const refreshWhenReady = () => {
       cancelAnimationFrame(refreshRaf);
-      refreshRaf = requestAnimationFrame(() => ScrollTrigger.refresh());
+      refreshRaf = requestAnimationFrame(() => {
+        lenis.resize();
+        ScrollTrigger.refresh();
+      });
     };
 
     if (typeof document !== "undefined" && "fonts" in document) {
@@ -43,8 +46,12 @@ export default function SmoothScroll({
     }
     window.addEventListener("load", refreshWhenReady);
 
+    const resizeObserver = new ResizeObserver(refreshWhenReady);
+    resizeObserver.observe(document.body);
+
     return () => {
       cancelAnimationFrame(refreshRaf);
+      resizeObserver.disconnect();
       window.removeEventListener("load", refreshWhenReady);
       lenis.off("scroll", onScroll);
       gsap.ticker.remove(tick);

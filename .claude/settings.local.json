@@ -9,7 +9,9 @@
       "Bash(npm uninstall *)",
       "Bash(ls D:/cielo/public/*.png)",
       "Bash(node *)",
-      "Bash(xargs -0 sed -i 's/CIELO/CALEO ALMA/g; s/cielo-/caleo-/g; s/CL · /CA · /g')"
+      "Bash(xargs -0 sed -i 's/CIELO/CALEO ALMA/g; s/cielo-/caleo-/g; s/CL · /CA · /g')",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)"
     ]
   }
 }
