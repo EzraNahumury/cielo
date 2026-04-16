@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx next *)",
+      "Bash(curl *)",
+      "Bash(kill %1)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(npm uninstall *)",
+      "Bash(ls D:/cielo/public/*.png)",
+      "Bash(node *)",
+      "Bash(xargs -0 sed -i 's/CIELO/CALEO ALMA/g; s/cielo-/caleo-/g; s/CL · /CA · /g')"
+    ]
+  }
+}
