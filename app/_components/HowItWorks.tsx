@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 const steps = [
   {
     n: "01",
@@ -22,12 +24,18 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="process" className="relative overflow-hidden py-40 md:py-56">
+    <section id="process" className="relative py-32 md:py-48">
       <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-8 md:px-12">
         <div className="col-span-12 md:col-span-4">
-          <div className="flex flex-col gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-15% 0px" }}
+            transition={{ duration: 1.1, ease: EASE }}
+            className="flex flex-col gap-6"
+          >
             <span className="text-[11px] tracking-[0.35em] text-white/40">
-              03 / PROCESS
+              02 / PROCESS
             </span>
             <div className="h-px w-16 bg-white/20" />
             <h2 className="font-[family-name:var(--font-display)] text-[40px] font-[500] leading-[1.05] tracking-[-0.02em] text-white md:text-[52px]">
@@ -37,7 +45,7 @@ export default function HowItWorks() {
                 One identity.
               </span>
             </h2>
-          </div>
+          </motion.div>
         </div>
 
         <div className="col-span-12 mt-20 md:col-span-8 md:mt-0">
@@ -49,9 +57,9 @@ export default function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
                 transition={{
-                  duration: 1,
+                  duration: 1.1,
                   delay: i * 0.12,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: EASE,
                 }}
                 className="group flex items-baseline gap-8 py-10 md:py-14"
               >

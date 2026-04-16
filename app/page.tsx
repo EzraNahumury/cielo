@@ -2,7 +2,6 @@ import FinalCTA from "./_components/FinalCTA";
 import Footer from "./_components/Footer";
 import Hero from "./_components/Hero";
 import HowItWorks from "./_components/HowItWorks";
-import IdentityCreation from "./_components/IdentityCreation";
 import Nav from "./_components/Nav";
 import Philosophy from "./_components/Philosophy";
 import Pride from "./_components/Pride";
@@ -16,7 +15,6 @@ export default function Home() {
       <main className="relative flex flex-1 flex-col">
         <Hero />
         <Philosophy />
-        <IdentityCreation />
         <HowItWorks />
         <Protection />
         <Showcase />

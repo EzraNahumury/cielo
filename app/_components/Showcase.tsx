@@ -15,7 +15,7 @@ const pieces = [
     code: "CA · 7F2A · 0419",
     sport: "Basketball",
     palette: ["#00D1FF", "#5BB6FF", "#102A43"],
-    bg: "from-[#0a2540] to-[#061826]",
+    bg: "from-[#0b2540] to-[#050f1c]",
   },
   {
     index: "02",
@@ -23,7 +23,7 @@ const pieces = [
     code: "CA · 3B19 · 0318",
     sport: "Football",
     palette: ["#5BB6FF", "#1F2933", "#F5FAFF"],
-    bg: "from-[#10243a] to-[#05101c]",
+    bg: "from-[#11253a] to-[#040d18]",
   },
   {
     index: "03",
@@ -31,7 +31,7 @@ const pieces = [
     code: "CA · A04C · 0227",
     sport: "Esports",
     palette: ["#F5FAFF", "#00D1FF", "#081827"],
-    bg: "from-[#0e2b44] to-[#061525]",
+    bg: "from-[#0f2c44] to-[#04111e]",
   },
 ];
 
@@ -47,7 +47,8 @@ export default function Showcase() {
 
       mm.add("(min-width: 768px)", () => {
         const track = trackRef.current!;
-        const getDistance = () => track.scrollWidth - window.innerWidth;
+        const getDistance = () =>
+          Math.max(0, track.scrollWidth - window.innerWidth);
 
         gsap.to(track, {
           x: () => -getDistance(),
@@ -57,6 +58,7 @@ export default function Showcase() {
             start: "top top",
             end: () => `+=${getDistance()}`,
             pin: true,
+            pinSpacing: true,
             scrub: 1.2,
             invalidateOnRefresh: true,
             anticipatePin: 1,
@@ -72,11 +74,20 @@ export default function Showcase() {
     <section
       id="showcase"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[color:var(--caleo-ink)] py-20 md:h-[100svh] md:py-0"
+      className="relative overflow-hidden bg-[color:var(--caleo-ink)] py-24 md:h-[100svh] md:py-0"
     >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,209,255,0.06), transparent 70%)",
+        }}
+      />
+
       <div className="absolute left-8 top-10 z-20 md:left-12 md:top-14">
         <span className="text-[11px] tracking-[0.35em] text-white/40">
-          05 / SHOWCASE
+          04 / SHOWCASE
         </span>
       </div>
 
@@ -85,8 +96,8 @@ export default function Showcase() {
           ref={trackRef}
           className="flex w-full flex-col gap-10 px-8 md:w-auto md:flex-row md:items-center md:gap-0 md:px-0"
         >
-          <div className="shrink-0 md:flex md:h-screen md:w-[60vw] md:flex-col md:justify-center md:pl-[8vw] md:pr-[8vw]">
-            <h2 className="font-[family-name:var(--font-display)] text-[44px] font-[500] leading-[1] tracking-[-0.025em] text-white md:text-[88px]">
+          <div className="shrink-0 md:flex md:h-screen md:w-[60vw] md:flex-col md:justify-center md:pl-[8vw] md:pr-[6vw]">
+            <h2 className="font-[family-name:var(--font-display)] text-[44px] font-[500] leading-[1] tracking-[-0.025em] text-white md:text-[84px]">
               Identities
               <br />
               already{" "}
@@ -101,10 +112,10 @@ export default function Showcase() {
           {pieces.map((p) => (
             <article
               key={p.name}
-              className="group shrink-0 md:h-screen md:w-[44vw] md:px-6 md:py-20"
+              className="group shrink-0 md:h-screen md:w-[40vw] md:px-5 md:py-24"
             >
               <div
-                className={`relative flex h-full min-h-[500px] flex-col justify-between overflow-hidden rounded-sm border border-white/10 bg-gradient-to-b ${p.bg} p-8 transition-[border-color] duration-500 group-hover:border-white/25`}
+                className={`relative flex h-full min-h-[480px] flex-col justify-between overflow-hidden rounded-[2px] border border-white/10 bg-gradient-to-b ${p.bg} p-8 transition-all duration-700 ease-out group-hover:-translate-y-1 group-hover:border-white/25`}
               >
                 <div className="flex items-baseline justify-between text-[11px] tracking-[0.3em] text-white/50">
                   <span className="font-[family-name:var(--font-display)] text-white/35">
@@ -116,7 +127,7 @@ export default function Showcase() {
                 <div className="relative flex flex-1 items-center justify-center py-10">
                   <svg
                     viewBox="0 0 200 220"
-                    className="h-[min(42vh,340px)] w-auto transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    className="h-[min(40vh,320px)] w-auto transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   >
                     <defs>
                       <linearGradient

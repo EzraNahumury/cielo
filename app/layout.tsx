@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Instrument_Serif, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import SiteBackground from "./_components/SiteBackground";
 import SmoothScroll from "./_components/SmoothScroll";
+import SplashCursor from "./_components/SplashCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -52,8 +54,23 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${display.variable} ${serif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[color:var(--caleo-ink)] text-[color:var(--foreground)] overflow-x-hidden">
-        <SmoothScroll>{children}</SmoothScroll>
+      <body className="relative min-h-full text-[color:var(--foreground)] overflow-x-hidden">
+        <SiteBackground />
+        <SplashCursor
+          SIM_RESOLUTION={128}
+          DYE_RESOLUTION={1024}
+          DENSITY_DISSIPATION={4.2}
+          VELOCITY_DISSIPATION={2.4}
+          CURL={2.5}
+          SPLAT_RADIUS={0.18}
+          SPLAT_FORCE={5200}
+          COLOR_UPDATE_SPEED={6}
+          RAINBOW_MODE
+          TRANSPARENT
+        />
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <SmoothScroll>{children}</SmoothScroll>
+        </div>
       </body>
     </html>
   );

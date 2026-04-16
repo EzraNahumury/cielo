@@ -2,30 +2,33 @@
 
 import { motion } from "framer-motion";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export default function FinalCTA() {
   return (
     <section
       id="cta"
-      className="relative flex min-h-[90svh] items-center overflow-hidden py-40"
+      className="relative flex min-h-[90svh] items-center overflow-hidden pt-32 pb-48 md:pt-48 md:pb-64"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[color:var(--caleo-cyan)]/8 blur-[160px]"
-      />
-
       <div className="mx-auto grid w-full max-w-[1400px] grid-cols-12 gap-6 px-8 md:px-12">
         <div className="col-span-12 md:col-span-3">
-          <span className="text-[11px] tracking-[0.35em] text-white/40">
-            07 / YOUR TURN
-          </span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-20% 0px" }}
+            transition={{ duration: 1, ease: EASE }}
+            className="text-[11px] tracking-[0.35em] text-white/40"
+          >
+            05 / YOUR TURN
+          </motion.span>
         </div>
 
         <div className="col-span-12 md:col-span-9">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-20% 0px" }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.2, ease: EASE }}
             className="font-[family-name:var(--font-display)] text-[48px] font-[500] leading-[0.98] tracking-[-0.03em] text-white md:text-[88px] lg:text-[104px]"
           >
             If it&apos;s yours,
@@ -41,7 +44,7 @@ export default function FinalCTA() {
             transition={{
               duration: 1.1,
               delay: 0.25,
-              ease: [0.22, 1, 0.36, 1],
+              ease: EASE,
             }}
             className="mt-16 flex flex-col gap-10 md:mt-20 md:flex-row md:items-end md:justify-between"
           >

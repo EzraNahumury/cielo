@@ -16,7 +16,7 @@ export default function SmoothScroll({
 }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
@@ -32,7 +32,20 @@ export default function SmoothScroll({
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
 
+    let refreshRaf = 0;
+    const refreshWhenReady = () => {
+      cancelAnimationFrame(refreshRaf);
+      refreshRaf = requestAnimationFrame(() => ScrollTrigger.refresh());
+    };
+
+    if (typeof document !== "undefined" && "fonts" in document) {
+      document.fonts.ready.then(refreshWhenReady);
+    }
+    window.addEventListener("load", refreshWhenReady);
+
     return () => {
+      cancelAnimationFrame(refreshRaf);
+      window.removeEventListener("load", refreshWhenReady);
       lenis.off("scroll", onScroll);
       gsap.ticker.remove(tick);
       lenis.destroy();
