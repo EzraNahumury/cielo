@@ -1,3 +1,7 @@
+"use client";
+
+import Waves from "./Waves";
+
 export default function SiteBackground() {
   return (
     <div
@@ -12,27 +16,25 @@ export default function SiteBackground() {
         }}
       />
 
-      <div
-        className="absolute -left-[10%] -top-[15%] h-[900px] w-[900px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(0,209,255,0.10), rgba(0,209,255,0) 60%)",
-        }}
-      />
-
-      <div
-        className="absolute -bottom-[12%] -right-[8%] h-[820px] w-[820px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(91,182,255,0.08), rgba(91,182,255,0) 55%)",
-        }}
+      <Waves
+        lineColor="rgba(0, 209, 255, 0.12)"
+        backgroundColor="transparent"
+        waveSpeedX={0.02}
+        waveSpeedY={0.01}
+        waveAmpX={40}
+        waveAmpY={20}
+        friction={0.9}
+        tension={0.01}
+        maxCursorMove={120}
+        xGap={14}
+        yGap={36}
       />
 
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 85% 65% at 50% 50%, transparent 45%, rgba(0,0,0,0.45) 100%)",
+            "radial-gradient(ellipse 85% 65% at 50% 50%, transparent 45%, rgba(0,0,0,0.55) 100%)",
         }}
       />
 

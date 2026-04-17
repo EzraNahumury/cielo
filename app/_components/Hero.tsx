@@ -56,7 +56,7 @@ export default function Hero() {
           >
             <span className="h-1 w-1 rounded-full bg-white" />
             <span className="text-[13px] font-medium tracking-wide">
-              <span className="text-white/60">Protected identity ·</span>{" "}
+              <span className="text-white/60">Protected Team Identity ·</span>{" "}
               <span className="text-white">Est. 2026</span>
             </span>
           </motion.div>
@@ -88,8 +88,8 @@ export default function Hero() {
             transition={{ duration: 1, delay: 2.2, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-[600px] text-[15px] leading-[1.55] text-white/70"
           >
-            One jersey, sealed to one team. Never produced for anyone else — a
-            protected identity, kept out of anyone else&apos;s hands.
+            CALEO ALMA builds your jersey from your team&apos;s identity — then
+            protects it. Your design is never reused for another team.
           </motion.p>
 
           <motion.a

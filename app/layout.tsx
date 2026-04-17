@@ -27,15 +27,17 @@ const serif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "CALEO ALMA — Built for Your Team, Not for Everyone",
+  title: "CaleoAlma — Built for Your Team, Not for Everyone",
   description:
-    "CALEO ALMA crafts protected team identity through custom jerseys. Your design. Your team. Never reused.",
+    "CALEO ALMA builds protected team identity through custom jerseys. Your design. Your team. Never reused.",
   keywords: [
     "custom jersey",
     "team identity",
     "CALEO ALMA",
     "protected design",
     "sports apparel",
+    "jersey custom",
+    "design protection",
   ],
 };
 
